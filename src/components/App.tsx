@@ -33,7 +33,9 @@ export class App extends Component<{}, PhonebookState> {
   };
 
   componentDidMount(): void {
-    const getData: [] = JSON.parse(localStorage.getItem("contacts") || "[]");
+    const getData: Contact[] = JSON.parse(
+      localStorage.getItem("contacts") || "[]"
+    );
 
     if (getData) {
       this.setState({ contacts: getData });
