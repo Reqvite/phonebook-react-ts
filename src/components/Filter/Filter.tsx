@@ -5,7 +5,7 @@ interface FilterProps {
   handleFilter: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const Filter = ({ title, handleFilter }: FilterProps) => {
+export const Filter: React.FC<FilterProps> = ({ title, handleFilter }) => {
   return (
     <>
       <FilterTitle>{title}</FilterTitle>

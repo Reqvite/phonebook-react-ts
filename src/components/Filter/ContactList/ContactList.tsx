@@ -1,4 +1,6 @@
+import React from "react";
 import { Contact } from "../../App";
+
 import {
   List,
   Notification,
@@ -8,16 +10,16 @@ import {
 } from "./ContactList.style";
 
 interface ContactListProps {
-  // filterContacts: () => Contact[];
+  filterContacts: { id: number; name: string; number: string }[];
   contacts: Contact[];
   deleteContact: (id: number) => void;
 }
 
-export const ContactList = ({
+export const ContactList: React.FC<ContactListProps> = ({
   filterContacts,
   contacts,
   deleteContact,
-}: ContactListProps) => {
+}) => {
   return (
     <List>
       {contacts.length === 0 ? (

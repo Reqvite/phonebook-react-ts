@@ -1,9 +1,15 @@
 import { Formik } from "formik";
-import PropTypes from "prop-types";
 
 import { FormStyled, Label, Input, Button } from "./ContactForm.style";
 
-export const ContactForm = ({ getData }) => {
+interface ContactFormProps {
+  getData: (
+    values: { name: string; number: string },
+    { resetForm }: any
+  ) => void;
+}
+
+export const ContactForm: React.FC<ContactFormProps> = ({ getData }) => {
   return (
     <Formik initialValues={{ name: "", number: "" }} onSubmit={getData}>
       <FormStyled>
@@ -31,8 +37,4 @@ export const ContactForm = ({ getData }) => {
       </FormStyled>
     </Formik>
   );
-};
-
-ContactForm.propTypes = {
-  getData: PropTypes.func.isRequired,
 };

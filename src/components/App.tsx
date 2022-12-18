@@ -11,7 +11,7 @@ import { Filter } from "./Filter/Filter";
 import { ContactList } from "./Filter/ContactList/ContactList";
 
 export interface Contact {
-  id: string;
+  id: any;
   name: string;
   number: string;
 }
@@ -46,7 +46,7 @@ export class App extends Component<{}, PhonebookState> {
     }
   }
 
-  handleSubmit = (values: Contact, { resetForm }: any): void => {
+  handleSubmit = (values: any, { resetForm }: any): void => {
     this.addNewContact(values);
     resetForm();
   };
@@ -86,7 +86,7 @@ export class App extends Component<{}, PhonebookState> {
 
   deleteContact = (id: number): void => {
     this.setState(({ contacts }) => ({
-      contacts: contacts.filter((contact) => Number(contact.id) !== id),
+      contacts: contacts.filter((contact) => contact.id !== id),
     }));
   };
 
